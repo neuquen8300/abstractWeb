@@ -87,28 +87,30 @@
             </h2>
             <a class='btn title-btn' id='title-btn'>QUIERO ESTAR</a>
         </div>
-        <div class="display-left">
+        <div class="first">
+        <div class="display-left disappear" id='data-left'>
             <div class="container">
                 <h1 class='display-title'>Mostrate<span class='title-dot'>.</span></h1>
-                <div class="display-data-side">
-                    <p class='display-p'>
-                        Te hacemos notar en las redes!
+                <div class="display-data-side" >
+                    <p class='display-p bold'>
+                        Te hacemos crecer en las redes!
                     </p>
                     <p class='display-p'>
                         Tenés un proyecto? Sos artista y querés mostrar lo que hacés?
                     </p>
+                    <p class='display-p'>
+                        Aumentá tus interacciones!
+                    </p>
                     <p class='display-p bold'>
                         Ahí podés estar vos.
-                    </p>
-                    
+                    </p>                  
                 </div>
                 <div class="display-img-side">
-                    <img class='display-img' src="{{asset('img/display/info2.jpg')}}" alt="">
+                    <img class='display-img disappear' src="{{asset('img/display/info2.jpg')}}" alt="">
                 </div>
             </div>
-            
         </div>
-        <div class="display-right">
+        <div class="display-right disappear" id='data-right'>
             <div class="container">
                 <h1 class='display-title'>Vendé más<span class='title-dot'>.</span></h1>
                 <div class="display-data-side">
@@ -125,13 +127,14 @@
 
                 </div>
                 <div class="display-img-side">
-                    <img class='display-img' src="{{asset('img/display/info1.jpg')}}" alt="">
+                    <img class='display-img disappear' src="{{asset('img/display/info1.jpg')}}" alt="">
                 </div>
             </div>
         </div>
+        </div>
         <div class="contact">
-            <h2 class='contact-title'>Estamos.</h2>
-            <form class='contact-form'>
+            <h2 class='contact-title disappear'>Estamos.</h2>
+            <form class='contact-form disappear'>
                 @csrf
                 <div class="input-wrapper">
                     <label for="name">

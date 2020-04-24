@@ -1,14 +1,28 @@
 let dot = document.querySelectorAll('.dot');
 let nightToggler = document.querySelector('.night-toggler-img');
 let titleBtn = document.getElementById('title-btn');
+let contactContainer = document.querySelector('.contact');
+let contact = [document.querySelector('.contact-title'), document.querySelector('.contact-form')];
 let contactBtn = document.querySelector('.submit-btn');
 let displayBtn = document.querySelector('.display-btn');
 let form = document.querySelector('form');
+let dataLeft = document.getElementById('data-left');
+let dataRight = document.getElementById('data-right');
+let displayImg = document.querySelectorAll('.display-img');
+let displayLeft = document.querySelector('.display-left');
+let displayRight = document.querySelector('.display-right');
 let formElements = Array.from(form);
 let errors = 0;
+let windowScroll = 0;
 let token = formElements[0].value;
 formElements.splice(0,1);
 formElements.splice(3,1);
+
+let appear = (item) => {
+    if (item.classList.contains('disappear')){
+        item.classList.remove('disappear');
+    }
+}
 
 let post = () =>{
     let data = new FormData(form);
@@ -29,7 +43,7 @@ let post = () =>{
         }
     })
     .catch(e => {
-        return e;
+        return e;                                                                                                                                                                                       
     })
 }
 formElements.forEach(element => {
@@ -42,13 +56,39 @@ formElements.forEach(element => {
         contactBtn.innerText = 'ENVIAR';
     });
 
-})
+});
+
+window.onscroll = () => {
+    windowScroll = window.scrollY;
+    if (windowScroll > (displayLeft.offsetTop - (displayLeft.offsetHeight / 2 ))){
+
+        appear(dataLeft);
+
+        setTimeout(() => {
+            appear(displayImg[0]);
+        }, 200);
+    }
+    if (windowScroll > (displayRight.offsetTop - (displayRight.offsetHeight / 2 ))){
+        appear(dataRight);
+        setTimeout(() => {
+            appear(displayImg[1]);
+        }, 200)
+    }
+    if (windowScroll > (contactContainer.offsetTop - (contactContainer.offsetHeight / 2))){
+        appear(contact[0]);
+        setTimeout(() => {
+            appear(contact[1]);
+        }, 200)
+    }
+};                                                                                                                                                                                                                                                                     
+
 displayBtn.onclick = () => {
     window.scrollTo({
         top: document.querySelector('footer').offsetTop,
         behavior: 'smooth'
     });
 }
+
 contactBtn.onclick = (e) => {
     e.preventDefault();
     errors = 0;
